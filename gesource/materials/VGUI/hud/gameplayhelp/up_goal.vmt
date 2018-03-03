@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/hud/gameplayhelp/up_goal"
+	"$ignorez"	"1"
+	"$translucent"	"1"
+}
