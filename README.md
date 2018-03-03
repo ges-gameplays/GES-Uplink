@@ -1,4 +1,4 @@
-# GoldenEye: Source Gameplays
+# Uplink for GoldenEye: Source
 
 A repository for the GoldenEye: Source gameplay "Uplink" and its supporting files.
 
@@ -6,14 +6,14 @@ A repository for the GoldenEye: Source gameplay "Uplink" and its supporting file
 
 Installation Instructions
 
-• Navigate to Program Files\Steam\SteamApps\SourceMods\gesource
+â€¢ Navigate to Program Files\Steam\SteamApps\SourceMods\gesource
 
-• Drag and drop the contents of the included "gesource" folder into the main GE:S folder
+â€¢ Drag and drop the contents of the included "gesource" folder into the main GE:S folder
 
-• When prompted, agree to merge folders
+â€¢ When prompted, agree to merge folders
 
-• The gameplays are now installed
+â€¢ The gameplays are now installed
 
-• Launch a gameplay by typing "ge_gameplay uplink" into the server console
+â€¢ Launch a gameplay by typing "ge_gameplay uplink" into the server console
 
 ---
