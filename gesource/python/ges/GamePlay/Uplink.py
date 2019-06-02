@@ -6,14 +6,11 @@ from GEWeapon import CGEWeapon
 
 USING_API = GEGlobal.API_VERSION_1_2_0
 
-#       #       #       #       #
-#           - UPLINK -          #
-#      Created by Euphonic      #
-# Made for GoldenEye:Source 5.0 #
-#       #       #       #       #
+# Created by Euphonic for GoldenEye: Source 5.0
+# For more information, visit https://euphonic.dev/goldeneye-source/
 
 #	* / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / *
-UplinkVersion = "^uUplink Version ^l5.0.0"
+UplinkVersion = "^uUplink Version ^l5.1.0"
 #	* / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / *
 
 class UplinkPoint( object ):
@@ -213,8 +210,8 @@ class Uplink( GEScenario ):
 		self.skinMI6 = 1
 		
 		self.uplinkReward = 2
-		self.uplinkRewardSoloPoints = 2
-		self.uplinkRewardSoloHP = 0.2
+		self.uplinkRewardSoloPoints = 3
+		self.uplinkRewardSoloHP = 0.25
 		
 #		>> Ping effect variables >>
 		self.pingTimerMax = 12 						# Sets how long between each "ping" effect on Uplinks
@@ -266,7 +263,7 @@ class Uplink( GEScenario ):
 		self.capturedPrintMsgAnd = " ^1and "					# Displays before final player who helped complete an Uplink
 		self.printMI6 = "MI6"
 		self.printJanus = "Janus"
-		self.helpMsg = "MI6 and Janus fight for control of key military satellites. Capture and control Uplinks while preventing your opponents from doing the same!\n\nEnter an Uplink to initiate capture and earn points. Team-controlled Uplinks generate points over time.\n\nTeamplay: Toggleable\n\nCreated by WNxEuphonic"
+		self.helpMsg = "MI6 and Janus fight for control of key military satellites. Capture and control Uplinks while preventing your opponents from doing the same!\n\nEnter an Uplink to initiate capture and earn points. Team-controlled Uplinks generate points over time.\n\nTeamplay: Toggleable\n\nCreated by Euphonic"
 
 #		>> Uplink Distribution display >>
 		self.distColorJanus = GEUtil.CColor(255,0,0,255)
@@ -289,6 +286,9 @@ class Uplink( GEScenario ):
 		help_obj.SetDefaultPane( pane )
 
 	def GetGameDescription( self ):
+		if GEMPGameRules.IsTeamplay():
+			return "Team Uplink"
+		else:
 			return "Uplink"
 
 	def GetTeamPlay( self ):
@@ -334,7 +334,6 @@ class Uplink( GEScenario ):
 			distanceMultiplier -= 1
 		
 		self.pointSeperation = distanceMultiplier * self.pointRadius
-		
 		GEMPGameRules.ResetAllPlayersScores()
 		self.pointsJanus = 0; self.pointsMI6 = 0
 		self.areaDictionary = {}
