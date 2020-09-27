@@ -10,7 +10,7 @@ USING_API = GEGlobal.API_VERSION_1_2_0
 # For more information, visit https://euphonic.dev/goldeneye-source/
 
 #	* / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / *
-UplinkVersion = "^uUplink Version ^l5.1.0"
+UplinkVersion = "^uUplink Version ^l5.1.1"
 #	* / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / * / *
 
 class UplinkPoint( object ):
@@ -197,7 +197,7 @@ class Uplink( GEScenario ):
 		
 #		>> Uplink variables >>
 		self.pointRadius = 255.0						# Sets radius of each Uplink
-		self.pointSeperation = 5 * self.pointRadius		# Sets minimum distance between Uplink points (changes with map size, see OnLoadGamePlay)
+		self.pointSeparation = 5 * self.pointRadius		# Sets minimum distance between Uplink points (changes with map size, see OnLoadGamePlay)
 		self.uplinkTimerMax = None						# Sets amount of time to make an Uplink (changes depending on teamplay setting)
 		self.uplinkTimerMaxSolo = 145					# Sets amount of time to make an Uplink in free-for-all mode
 		self.uplinkTimerMaxTeam = 165					# Sets amount of time to make an Uplink in teamplay
@@ -276,7 +276,7 @@ class Uplink( GEScenario ):
 	def GetScenarioHelp( self, help_obj ):
 		help_obj.SetDescription( self.helpMsg )
 			
-		help_obj.SetInfo("Capture and Defend Uplinks", "http://forums.geshl2.com/index.php/topic,7275.new.html" )
+		help_obj.SetInfo("Capture and Defend Uplinks", "https://euphonic.dev/goldeneye-source/uplink" )
 		
 		pane = help_obj.AddPane( "uplink1" )
 		help_obj.AddHelp( pane, "up_goal", "Uplinks are marked by flags and glowing rings")
@@ -337,7 +337,7 @@ class Uplink( GEScenario ):
 			self.uplinkTimerMax = self.uplinkTimerMaxSolo
 			distanceMultiplier -= 1
 		
-		self.pointSeperation = distanceMultiplier * self.pointRadius
+		self.pointSeparation = distanceMultiplier * self.pointRadius
 		GEMPGameRules.ResetAllPlayersScores()
 		self.pointsJanus = 0; self.pointsMI6 = 0
 		self.areaDictionary = {}
@@ -456,7 +456,7 @@ class Uplink( GEScenario ):
 	
 	def OnPlayerSay(self, player, text):
 		if text == "!version":
-			GEUtil.ClientPrint(player, GEGlobal.HUD_PRINTTALK, UplinkVersion) 
+			GEUtil.ClientPrint(None, GEGlobal.HUD_PRINTTALK, UplinkVersion) 
 		
 	def OnThink(self):
 		self.updateRings()
@@ -610,7 +610,7 @@ class Uplink( GEScenario ):
 			return self.colorNeutralPing
 	
 	def createCaptureZone(self, name, skinType, team):
-		GEMPGameRules.GetTokenMgr().SetupCaptureArea( name , model= "models/weapons/tokens/w_flagtoken.mdl", skin=skinType, limit=1, location=GEGlobal.SPAWN_TOKEN, radius=0.5*self.pointRadius, rqd_team = GEGlobal.TEAM_NONE, rqd_token= None, spread=self.pointSeperation)
+		GEMPGameRules.GetTokenMgr().SetupCaptureArea( name , model= "models/weapons/tokens/w_flagtoken.mdl", skin=skinType, limit=1, location=GEGlobal.SPAWN_TOKEN, radius=0.5*self.pointRadius, rqd_team = GEGlobal.TEAM_NONE, rqd_token= None, spread=self.pointSeparation)
 
 	def createObjective(self, area, name, capturing):
 		if capturing:
