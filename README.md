@@ -1,6 +1,6 @@
 # Uplink for GoldenEye: Source
 
-**A repository for the GoldenEye: Source gameplay "Uplink" and its supporting files.**
+A repository for the GoldenEye: Source gameplay "Uplink" and its supporting files.
 
 ---
 
