@@ -4,7 +4,7 @@ A repository for the GoldenEye: Source gameplay "Uplink" and its supporting file
 
 ---
 
-Installation Instructions
+**Installation Instructions**
 
 • Navigate to Program Files\Steam\SteamApps\SourceMods\gesource
 
@@ -17,3 +17,9 @@ Installation Instructions
 • Launch a gameplay by typing "ge_gameplay uplink" into the server console
 
 ---
+
+**Add the Following Files to Your Server's Download List**
+
+materials\VGUI\hud\gameplayhelp\up_goal.vmt
+
+materials\VGUI\hud\gameplayhelp\up_goal.vtf
