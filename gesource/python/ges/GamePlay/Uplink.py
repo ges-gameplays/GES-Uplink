@@ -307,7 +307,7 @@ class Uplink( GEScenario ):
 		if GEMPGameRules.GetNumActivePlayers() >= 2:
 			self.WaitingForPlayers = False
 		
-		self.CreateCVar( "up_warmup", "20", "The warm up time in seconds (Use 0 to disable warmup)" )
+		self.CreateCVar( "up_warmup", "20", "The warmup time in seconds (Use 0 to disable warmup)" )
 		self.CreateCVar( "up_points_override", "0", "Sets number of Uplinks to spawn to a maximum of 15. Set to 0 to use default amount. Takes effect on round end" )
 
 	def OnUnloadGamePlay( self ):
